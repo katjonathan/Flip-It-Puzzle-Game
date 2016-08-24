@@ -1,5 +1,6 @@
 # Flip-It-Puzzle-Game
 A recreation of the classic electronic game 'Lights Out!'
+OBJECTIVE: The goal of the game is to turn all the squares to the 'on' position
 
 
 Certain things in this version of the game are not working:
