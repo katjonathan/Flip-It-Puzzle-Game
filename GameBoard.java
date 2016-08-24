@@ -127,11 +127,6 @@ public class GameBoard extends JComponent
 		}
 	}
 	
-	public int getScore()
-	{
-		return score;
-	}
-	
 	public int getDimension()
 	{
 		return dimension;
@@ -180,6 +175,8 @@ public class GameBoard extends JComponent
 			Square pressed = (Square)event.getSource();
 			// used the coordinates methods in Square as a means to bypass the problem
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
+			
+			// score should display update in Main (right now it doesn't)
 			score = score + 1;
 			if(checkWin())
 			{

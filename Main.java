@@ -26,13 +26,10 @@ public class Main
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
 		JButton reset = new JButton("Reset");
 		JButton randomize = new JButton("Randomize");
-		// cannot display updated score
-		//JLabel score = new JLabel("    moves: "+board.getScore());
 		// note won't appear on FlowLayout for some reason
 		JLabel note = new JLabel("* note that not all puzzle positions are solvable");
 		optionPanel.add(reset);
 		optionPanel.add(randomize);
-		optionPanel.add(score);
 		optionPanel.add(note);
 		housingPanel.add(optionPanel, BorderLayout.SOUTH);
 		
@@ -60,5 +57,13 @@ public class Main
 		ActionListener buttonListener = new OptionListener();
 		reset.addActionListener(buttonListener);
 		randomize.addActionListener(buttonListener);
+		
+		
+		/* 
+		 * THINGS TO DO:
+		 * Need a way for Main to listen to the updates GameBoard is making 
+		 * and change various things about Main (like score or dimension) 
+		 * according to what is done in GameBoard
+		 */
 	}
 }
