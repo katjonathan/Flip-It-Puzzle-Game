@@ -15,7 +15,6 @@ public class Main
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		
-		
 		GameBoard board = new GameBoard();
 		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(new GridLayout(board.getDimension(),board.getDimension()));
@@ -27,10 +26,13 @@ public class Main
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
 		JButton reset = new JButton("Reset");
 		JButton randomize = new JButton("Randomize");
-		JLabel note = new JLabel("* note that not all puzzle positions are solvable");
+		// cannot display updated score
+		//JLabel score = new JLabel("    moves: "+board.getScore());
 		// note won't appear on FlowLayout for some reason
+		JLabel note = new JLabel("* note that not all puzzle positions are solvable");
 		optionPanel.add(reset);
 		optionPanel.add(randomize);
+		optionPanel.add(score);
 		optionPanel.add(note);
 		housingPanel.add(optionPanel, BorderLayout.SOUTH);
 		
@@ -53,7 +55,6 @@ public class Main
 					board.randomizeBoard();
 				}
 			}
-			
 		}
 		
 		ActionListener buttonListener = new OptionListener();

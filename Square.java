@@ -16,8 +16,8 @@ public class Square extends JButton
 	// these two are labels that display whether the Square is 'on' or 'off'
 	private static final String STATE_TEXT_ON = "ON";
 	private static final String STATE_TEXT_OFF = "OFF";
-	private static final Color ON_COLOR = new Color(255, 0, 0);
 	private static final Color OFF_COLOR = new Color(0, 0, 255);
+	private static final Color ON_COLOR = new Color(255, 255, 0);
 	
 	//id is used to find coordinates within the board and for debug
 	private int id;
@@ -28,10 +28,7 @@ public class Square extends JButton
 	public Square()
 	{
 		this.setPreferredSize(new Dimension(5,5));
-		state = false;
-		this.setText(STATE_TEXT_OFF);
-		this.setBackground(ON_COLOR);
-		this.setForeground(new Color(255, 255, 255));
+		setState(false);
 		id = lastID + 1;
 		lastID = id;
 	}
@@ -50,15 +47,17 @@ public class Square extends JButton
 	public void setState(boolean newState)
 	{
 		state = newState;
-		if(state)
+		if(!state)
 		{
-			this.setText(STATE_TEXT_ON);
+			this.setText(STATE_TEXT_OFF);
 			this.setBackground(OFF_COLOR);
+			this.setForeground(new Color(255, 255, 255));
 		}
 		else
 		{
-			this.setText(STATE_TEXT_OFF);
+			this.setText(STATE_TEXT_ON);
 			this.setBackground(ON_COLOR);
+			this.setForeground(new Color(0,0,0));
 		}
 	}
 	

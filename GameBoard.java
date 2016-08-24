@@ -8,11 +8,13 @@ public class GameBoard extends JComponent
 	private int dimension;
 	private Square[][] grid;
 	private ActionListener boardListener;
+	private int score;
 	
 	public GameBoard()
 	{
 		// constructor
 		dimension = 5;
+		score = 0;
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
@@ -125,6 +127,11 @@ public class GameBoard extends JComponent
 		}
 	}
 	
+	public int getScore()
+	{
+		return score;
+	}
+	
 	public int getDimension()
 	{
 		return dimension;
@@ -169,10 +176,11 @@ public class GameBoard extends JComponent
 			// in other words, how do I get the Squares to recognize each other?
 			
 			// possible (unchecked) solution:
+			// this gets the Square that was pressed
 			Square pressed = (Square)event.getSource();
-			// this (above line) gets the Square that was pressed
-			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
 			// used the coordinates methods in Square as a means to bypass the problem
+			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
+			score = score + 1;
 			if(checkWin())
 			{
 				// want to increase the dimensions of the board 
