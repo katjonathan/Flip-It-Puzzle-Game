@@ -5,6 +5,7 @@ NOTE: For those who want to edit the files, please do not directly edit the mast
 
 OBJECTIVE: The goal of the game is to turn all the squares to the 'on' position
 
+--------------------------------------------------------------------------------------------------------------------------
 
 Certain things in this version of the game are not working:
 
@@ -13,3 +14,4 @@ Certain things in this version of the game are not working:
 *  The size of the Squares are not fixed
 *  The score does not increase when a square is clicked
 
+ 
