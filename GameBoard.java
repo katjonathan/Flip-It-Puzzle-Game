@@ -137,6 +137,7 @@ public class GameBoard extends JComponent
 	
 	public void randomizeBoard()
 	{
+		score = 0;
 		// note that not all permutations are solvable
 		for(int x = 0; x < grid.length; x++)
 		{
@@ -161,7 +162,7 @@ public class GameBoard extends JComponent
 	
 	public JLabel getScore()
 	{
-		return new JLabel("   moves:  "+ score);
+		return new JLabel("   moves:  "+score);
 	}
 	
 	class SquareListener implements ActionListener 

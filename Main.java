@@ -25,8 +25,6 @@ public class Main
 		gamePanel = new JPanel();
 		optionPanel = new JPanel();
 		housingPanel = new JPanel();
-		housingPanel.setLayout(new BorderLayout());
-		optionPanel.setLayout(new FlowLayout());
 		reset = new JButton("Reset");
 		randomize = new JButton("Randomize");
 		// note won't appear on FlowLayout for some reason
@@ -39,6 +37,8 @@ public class Main
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		
 		gamePanel.setLayout(new GridLayout(board.getDimension(),board.getDimension()));
+		optionPanel.setLayout(new FlowLayout());
+		housingPanel.setLayout(new BorderLayout());
 		board.addBoard(gamePanel);
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
 		optionPanel.add(reset);
