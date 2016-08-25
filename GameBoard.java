@@ -178,6 +178,7 @@ public class GameBoard extends JComponent
 			
 			// score should display update in Main (right now it doesn't)
 			score = score + 1;
+			
 			if(checkWin())
 			{
 				// want to increase the dimensions of the board 
