@@ -177,7 +177,6 @@ public class GameBoard extends JComponent
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
 			
 			// score should display update in Main (right now it doesn't)
-			
 			if(checkWin())
 			{
 				// want to increase the dimensions of the board 
