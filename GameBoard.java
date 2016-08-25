@@ -40,6 +40,7 @@ public class GameBoard extends JComponent
 	{
 		// constructor
 		dimension = input;
+		score = 0;
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
@@ -113,6 +114,7 @@ public class GameBoard extends JComponent
 					grid[x][y+j].flip();
 				}
 			}
+			score = score + 1;
 		}
 	}
 	
@@ -125,6 +127,7 @@ public class GameBoard extends JComponent
 				grid[x][y].setState(false);
 			}
 		}
+		score = 0;
 	}
 	
 	public int getDimension()
@@ -175,10 +178,7 @@ public class GameBoard extends JComponent
 			Square pressed = (Square)event.getSource();
 			// used the coordinates methods in Square as a means to bypass the problem
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
-			
-			// score should display update in Main (right now it doesn't)
-			score = score + 1;
-			
+						
 			if(checkWin())
 			{
 				// want to increase the dimensions of the board 
