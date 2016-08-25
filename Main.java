@@ -7,19 +7,31 @@ import java.awt.event.*;
 
 public class Main
 {
+	JFrame frame;
 	final int FRAME_WIDTH = 400;
 	final int FRAME_HEIGHT = 450;
-	JFrame frame = new JFrame("Flip It! -- A Puzzle Game");
-	GameBoard board = new GameBoard();
-	JPanel gamePanel = new JPanel();
-	JPanel optionPanel = new JPanel();
-	JPanel housingPanel = new JPanel();
-	housingPanel.setLayout(new BorderLayout());
-	optionPanel.setLayout(new FlowLayout());
-	JButton reset = new JButton("Reset");
-	JButton randomize = new JButton("Randomize");
-	// note won't appear on FlowLayout for some reason
-	JLabel note = new JLabel("* note that not all puzzle positions are solvable");
+	GameBoard board;
+	JPanel gamePanel;
+	JPanel optionPanel;
+	JPanel housingPanel;
+	JButton reset;
+	JButton randomize;
+	JLabel note;
+	
+	public Main()
+	{
+		frame = new JFrame("Flip It! -- A Puzzle Game");
+		board = new GameBoard();
+		gamePanel = new JPanel();
+		optionPanel = new JPanel();
+		housingPanel = new JPanel();
+		housingPanel.setLayout(new BorderLayout());
+		optionPanel.setLayout(new FlowLayout());
+		reset = new JButton("Reset");
+		randomize = new JButton("Randomize");
+		// note won't appear on FlowLayout for some reason
+		note = new JLabel("* note that not all puzzle positions are solvable");
+	}
 	
 	public static void main(String[] args)
 	{
@@ -31,6 +43,7 @@ public class Main
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
 		optionPanel.add(reset);
 		optionPanel.add(randomize);
+		optionPanel.add(board.getScore());
 		optionPanel.add(note);
 		housingPanel.add(optionPanel, BorderLayout.SOUTH);
 		

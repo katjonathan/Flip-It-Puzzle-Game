@@ -187,7 +187,7 @@ public class GameBoard extends JComponent
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
-				
+				this.GameBoard(dimension+2); 
 			}  
 		}
 	}
