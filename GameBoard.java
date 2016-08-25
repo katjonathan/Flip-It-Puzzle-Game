@@ -159,6 +159,10 @@ public class GameBoard extends JComponent
 		}
 	}
 	
+	public JLabel getScore()
+	{
+		return new JLabel("   moves:  "+ score);
+	}
 	
 	class SquareListener implements ActionListener 
 	{
@@ -179,7 +183,7 @@ public class GameBoard extends JComponent
 			// used the coordinates methods in Square as a means to bypass the problem
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
 						
-			if(checkWin())
+			if(checkWin() == true)
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
