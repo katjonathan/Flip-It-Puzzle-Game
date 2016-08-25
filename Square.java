@@ -7,6 +7,7 @@ import java.awt.event.*;
 @SuppressWarnings({ "serial", "unused" })
 public class Square extends JButton
 {
+	// yahoo!!
 	// each Square has a state that turns 'on' or 'off', similar to a light
 	private boolean state;
 	
@@ -36,7 +37,6 @@ public class Square extends JButton
 	public void flip()
 	{
 		setState(!state);
-		
 	}
 	
 	public boolean getState()
