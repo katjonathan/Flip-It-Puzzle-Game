@@ -169,21 +169,10 @@ public class GameBoard extends JComponent
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			// here is the problem:
-			// a Square is a class of JButton and no Square can know about the Squares adjacent to it within the Square class
-			// therefore we have the FlipNeighbor() method written in the GameBoard class
-			// because the ActionListener is in the GameBoard class, it will not recognize each Square as a click
-			// but rather the board as a whole
-			
-			// how do I get it to recognize each Square and then perform actions that will affect other Squares?
-			// in other words, how do I get the Squares to recognize each other?
-			
-			// possible (unchecked) solution:
 			// this gets the Square that was pressed
 			Square pressed = (Square)event.getSource();
-			// used the coordinates methods in Square as a means to bypass the problem
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
-						
+			
 			if(checkWin() == true)
 			{
 				// want to increase the dimensions of the board 
