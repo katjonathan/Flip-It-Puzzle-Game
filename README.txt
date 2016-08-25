@@ -1,5 +1,6 @@
 # Flip-It-Puzzle-Game
 A recreation of the classic electronic game 'Lights Out!'
+NOTE: For those who want to edit the files, please do not directly edit the master branch. Instead, make a fork or another branch and edit to your heart's content there. Also, please put your name on any branches/forks you made so I can sort them out later. (If you'd like, also add a comment with your name on your additions to the source code.)
 OBJECTIVE: The goal of the game is to turn all the squares to the 'on' position
 
 
