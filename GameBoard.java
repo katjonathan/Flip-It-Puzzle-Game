@@ -172,14 +172,9 @@ public class GameBoard extends JComponent
 			// this gets the Square that was pressed
 			Square pressed = (Square)event.getSource();
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
-<<<<<<< HEAD
 			
-			// score should display update in Main (right now it doesn't)
-			if(checkWin())
-=======
-			
+			// score should display update in Main (right now it doesn't)			
 			if(checkWin() == true)
->>>>>>> refs/heads/score-tracker
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
