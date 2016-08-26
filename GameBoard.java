@@ -40,6 +40,7 @@ public class GameBoard extends JComponent
 	{
 		// constructor
 		dimension = input;
+		score = 0;
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
@@ -113,6 +114,7 @@ public class GameBoard extends JComponent
 					grid[x][y+j].flip();
 				}
 			}
+			score = score + 1;
 		}
 	}
 	
@@ -125,6 +127,7 @@ public class GameBoard extends JComponent
 				grid[x][y].setState(false);
 			}
 		}
+		score = 0;
 	}
 	
 	public int getDimension()
@@ -134,6 +137,7 @@ public class GameBoard extends JComponent
 	
 	public void randomizeBoard()
 	{
+		score = 0;
 		// note that not all permutations are solvable
 		for(int x = 0; x < grid.length; x++)
 		{
@@ -156,32 +160,30 @@ public class GameBoard extends JComponent
 		}
 	}
 	
+	public JLabel getScore()
+	{
+		return new JLabel("   moves:  "+score);
+	}
 	
 	class SquareListener implements ActionListener 
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			// here is the problem:
-			// a Square is a class of JButton and no Square can know about the Squares adjacent to it within the Square class
-			// therefore we have the FlipNeighbor() method written in the GameBoard class
-			// because the ActionListener is in the GameBoard class, it will not recognize each Square as a click
-			// but rather the board as a whole
-			
-			// how do I get it to recognize each Square and then perform actions that will affect other Squares?
-			// in other words, how do I get the Squares to recognize each other?
-			
-			// possible (unchecked) solution:
 			// this gets the Square that was pressed
 			Square pressed = (Square)event.getSource();
-			// used the coordinates methods in Square as a means to bypass the problem
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
+<<<<<<< HEAD
 			
 			// score should display update in Main (right now it doesn't)
 			if(checkWin())
+=======
+			
+			if(checkWin() == true)
+>>>>>>> refs/heads/score-tracker
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
-				
+				this.GameBoard(dimension+2); 
 			}  
 		}
 	}

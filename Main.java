@@ -7,29 +7,43 @@ import java.awt.event.*;
 
 public class Main
 {
+	JFrame frame;
+	final int FRAME_WIDTH = 400;
+	final int FRAME_HEIGHT = 450;
+	GameBoard board;
+	JPanel gamePanel;
+	JPanel optionPanel;
+	JPanel housingPanel;
+	JButton reset;
+	JButton randomize;
+	JLabel note;
+	
+	public Main()
+	{
+		frame = new JFrame("Flip It! -- A Puzzle Game");
+		board = new GameBoard();
+		gamePanel = new JPanel();
+		optionPanel = new JPanel();
+		housingPanel = new JPanel();
+		reset = new JButton("Reset");
+		randomize = new JButton("Randomize");
+		// note won't appear on FlowLayout for some reason
+		note = new JLabel("* note that not all puzzle positions are solvable");
+	}
+	
 	public static void main(String[] args)
 	{
-		final int FRAME_WIDTH = 400;
-		final int FRAME_HEIGHT = 450;
-		JFrame frame = new JFrame("Flip It! -- A Puzzle Game");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		
-		GameBoard board = new GameBoard();
-		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(new GridLayout(board.getDimension(),board.getDimension()));
-		board.addBoard(gamePanel);
-		JPanel optionPanel = new JPanel();
-		JPanel housingPanel = new JPanel();
-		housingPanel.setLayout(new BorderLayout());
 		optionPanel.setLayout(new FlowLayout());
+		housingPanel.setLayout(new BorderLayout());
+		board.addBoard(gamePanel);
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
-		JButton reset = new JButton("Reset");
-		JButton randomize = new JButton("Randomize");
-		// note won't appear on FlowLayout for some reason
-		JLabel note = new JLabel("* note that not all puzzle positions are solvable");
 		optionPanel.add(reset);
 		optionPanel.add(randomize);
+		optionPanel.add(board.getScore());
 		optionPanel.add(note);
 		housingPanel.add(optionPanel, BorderLayout.SOUTH);
 		
@@ -37,26 +51,6 @@ public class Main
 		frame.setVisible(true);
 		frame.setResizable(false); 
 		
-		// OptionListener used for 'reset' and 'randomize' buttons
-		class OptionListener implements ActionListener
-		{
-			public void actionPerformed(ActionEvent event) 
-			{
-				JButton pressed = (JButton)event.getSource();
-				if(pressed == reset)
-				{
-					board.reset();
-				}
-				if(pressed == randomize)
-				{
-					board.randomizeBoard();
-				}
-			}
-		}
-		
-		ActionListener buttonListener = new OptionListener();
-		reset.addActionListener(buttonListener);
-		randomize.addActionListener(buttonListener);
 		
 		
 		/* 
@@ -66,4 +60,25 @@ public class Main
 		 * according to what is done in GameBoard
 		 */
 	}
+	
+	// OptionListener used for 'reset' and 'randomize' buttons
+	class OptionListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event) 
+		{
+			JButton pressed = (JButton)event.getSource();
+			if(pressed == reset)
+			{
+				board.reset();
+			}
+			if(pressed == randomize)
+			{
+				board.randomizeBoard();
+			}
+		}
+	}
+	
+	ActionListener buttonListener = new OptionListener();
+	reset.addActionListener(buttonListener);
+	randomize.addActionListener(buttonListener);
 }
