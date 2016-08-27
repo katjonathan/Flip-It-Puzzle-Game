@@ -30,6 +30,7 @@ public class Main
 		randomize = new JButton("Randomize");
 		reset.setOpaque(true);
 		randomize.setOpaque(true);
+		// score won't display or update
 		score = board.getScore();
 		// note won't appear on FlowLayout for some reason
 		note = new JLabel("* note that not all puzzle positions are solvable");
