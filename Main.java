@@ -8,8 +8,8 @@ import java.awt.event.*;
 public class Main
 {
 	static JFrame frame;
-	final int FRAME_WIDTH = 400;
-	final int FRAME_HEIGHT = 450;
+	static final int FRAME_WIDTH = 400;
+	static final int FRAME_HEIGHT = 450;
 	GameBoard board;
 	JPanel gamePanel;
 	JPanel optionPanel;
