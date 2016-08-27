@@ -15,7 +15,7 @@ public class GameBoard extends JComponent
 	public GameBoard()
 	{
 		// constructor
-		dimension = 5;
+		dimension = 3;
 		updateScore(0);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
@@ -174,6 +174,11 @@ public class GameBoard extends JComponent
 		return scoreLabel;
 	}
 	
+	public GameBoard updateDimension()
+	{
+		return new GameBoard(dimension+2);
+	}
+	
 	class SquareListener implements ActionListener 
 	{
 		public void actionPerformed(ActionEvent event)
@@ -186,11 +191,14 @@ public class GameBoard extends JComponent
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
-				JOptionPane.showMessageDialog(Main.frame, "You win! \nMoving onto next level....");
-				JOptionPane.setVisible(true);
-				this.GameBoard(dimension+2); 
+				updateScore(0);
+				JOptionPane.showMessageDialog(null, "You win! \nMoving onto next level....");
+				winningMessage.setVisible(true);
+				// update GameBoard dimensions here
+				updateDimension();
 			}  
 		}
 	}
+
 	
 }

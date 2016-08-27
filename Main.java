@@ -7,37 +7,24 @@ import java.awt.event.*;
 
 public class Main
 {
-	static JFrame frame;
-	static final int FRAME_WIDTH = 400;
-	static final int FRAME_HEIGHT = 450;
-	GameBoard board;
-	JPanel gamePanel;
-	JPanel optionPanel;
-	JPanel housingPanel;
-	JButton reset;
-	JButton randomize;
-	JLabel note;
-	JLabel score;
-	
-	public Main()
-	{
-		frame = new JFrame("Flip It! -- A Puzzle Game");
-		board = new GameBoard();
-		gamePanel = new JPanel();
-		optionPanel = new JPanel();
-		housingPanel = new JPanel();
-		reset = new JButton("Reset");
-		randomize = new JButton("Randomize");
-		reset.setOpaque(true);
-		randomize.setOpaque(true);
-		// PROBLEM: score won't display or update
-		score = board.getScore();
-		// PROBLEM: note won't appear on FlowLayout for some reason
-		note = new JLabel("* note that not all puzzle positions are solvable");
-	}
+	// Java won't allow Main to have class variable
 	
 	public static void main(String[] args)
 	{
+		final int FRAME_WIDTH = 400;
+		final int FRAME_HEIGHT = 450;
+		JFrame frame = new JFrame("Flip It! -- A Puzzle Game");
+		GameBoard board = new GameBoard();
+		JPanel gamePanel = new JPanel();
+		JPanel optionPanel = new JPanel();
+		JPanel housingPanel = new JPanel();
+		JButton reset = new JButton("Reset");
+		JButton randomize = new JButton("Randomize");
+		reset.setOpaque(true);
+		randomize.setOpaque(true);
+		JLabel score = board.getScore();
+		JLabel note = new JLabel("* note that not all puzzle positions are solvable");
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		
@@ -63,26 +50,27 @@ public class Main
 		 * and change various things about Main (like score or dimension) 
 		 * according to what is done in GameBoard
 		 */
-	}
-	
-	// OptionListener used for 'reset' and 'randomize' buttons
-	class OptionListener implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event) 
+		
+		// OptionListener used for 'reset' and 'randomize' buttons
+		class OptionListener implements ActionListener
 		{
-			JButton pressed = (JButton)event.getSource();
-			if(pressed == reset)
-			{
-				board.reset();
-			}
-			if(pressed == randomize)
-			{
-				board.randomizeBoard();
+			public void actionPerformed(ActionEvent event) 
+			{				
+				JButton pressed = (JButton)event.getSource();
+				if(pressed == reset)
+				{
+					board.reset();
+				}
+				if(pressed == randomize)
+				{
+					board.randomizeBoard();
+				}
 			}
 		}
+		
+		ActionListener buttonListener = new OptionListener();
+		reset.addActionListener(buttonListener);
+		randomize.addActionListener(buttonListener);
 	}
 	
-	ActionListener buttonListener = new OptionListener();
-	reset.addActionListener(buttonListener);
-	randomize.addActionListener(buttonListener);
 }
