@@ -132,6 +132,7 @@ public class GameBoard extends JComponent
 			}
 		}
 		score = 0;
+		scoreLabel.setText("moves: "+score);
 	}
 	
 	public int getDimension()
