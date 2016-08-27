@@ -15,7 +15,7 @@ public class GameBoard extends JComponent
 	public GameBoard()
 	{
 		// constructor
-		dimension = 3;
+		dimension = 5;
 		updateScore(0);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
