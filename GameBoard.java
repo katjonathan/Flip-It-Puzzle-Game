@@ -16,6 +16,7 @@ public class GameBoard extends JComponent
 		// constructor
 		dimension = 5;
 		score = 0;
+		scoreLabel = new JLabel("   moves: "+score);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
@@ -42,6 +43,7 @@ public class GameBoard extends JComponent
 		// constructor
 		dimension = input;
 		score = 0;
+		scoreLabel = new JLabel("   moves: "+score);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
