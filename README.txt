@@ -5,7 +5,7 @@ NOTE: For those who want to edit the files, please do not directly edit the mast
 
 OBJECTIVE: The goal of the game is to turn all the squares to the 'on' position. When flipping a square, the squares adjacent to the one you pressed will also flip (the diagonals are not considered as adjacent).
 
-HOW TO DOWNLOAD:  Either you can run the already compiled version (the ".jar" file) or you can run "javac Main.java" and then "java Main" (minus the quotation marks) in Terminal or Command Prompt 
+HOW TO DOWNLOAD: Either you can run the already compiled version (the ".jar" file) or you can run "javac Main.java" and then "java Main" (minus the quotation marks) in Terminal or Command Prompt 
 
 -----------------------------------------------------------------------------------------------------
 
