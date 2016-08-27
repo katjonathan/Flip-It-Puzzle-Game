@@ -27,6 +27,8 @@ public class Main
 		housingPanel = new JPanel();
 		reset = new JButton("Reset");
 		randomize = new JButton("Randomize");
+		reset.setOpaque(true);
+		randomize.setOpaque(true);
 		// note won't appear on FlowLayout for some reason
 		note = new JLabel("* note that not all puzzle positions are solvable");
 	}
