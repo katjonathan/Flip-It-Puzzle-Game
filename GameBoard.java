@@ -174,9 +174,15 @@ public class GameBoard extends JComponent
 		return scoreLabel;
 	}
 	
-	public GameBoard updateDimension()
+	public void updateDimension()
 	{
-		return new GameBoard(dimension+2);
+		if(checkWin() == true)
+		{
+			JOptionPane.showMessageDialog(null, "You win! \nMoving onto next level....");
+			winningMessage.setVisible(true);
+			updateScore(0);
+			this.GameBoard(dimension+2);
+		}
 	}
 	
 	class SquareListener implements ActionListener 
@@ -186,17 +192,7 @@ public class GameBoard extends JComponent
 			// this gets the Square that was pressed
 			Square pressed = (Square)event.getSource();
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
-			
-			if(checkWin() == true)
-			{
-				// want to increase the dimensions of the board 
-				// want to send message to Main class to create a new GameBoard
-				updateScore(0);
-				JOptionPane.showMessageDialog(null, "You win! \nMoving onto next level....");
-				winningMessage.setVisible(true);
-				// update GameBoard dimensions here
-				updateDimension();
-			}  
+			updateDimension();
 		}
 	}
 
