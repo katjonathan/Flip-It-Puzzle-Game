@@ -10,11 +10,12 @@ public class GameBoard extends JComponent
 	private ActionListener boardListener;
 	private int score = 0;
 	private JLabel scoreLabel = new JLabel();
+	private JOptionPane winningMessage = new JOptionPane();
 	
 	public GameBoard()
 	{
 		// constructor
-		dimension = 5;
+		dimension = 3;
 		updateScore(0);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
@@ -185,6 +186,8 @@ public class GameBoard extends JComponent
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
+				JOptionPane.showMessageDialog(Main.frame, "You win! \nMoving onto next level....");
+				JOptionPane.setVisible(true);
 				this.GameBoard(dimension+2); 
 			}  
 		}

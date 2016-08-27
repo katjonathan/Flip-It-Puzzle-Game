@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 public class Main
 {
-	JFrame frame;
+	static JFrame frame;
 	final int FRAME_WIDTH = 400;
 	final int FRAME_HEIGHT = 450;
 	GameBoard board;
