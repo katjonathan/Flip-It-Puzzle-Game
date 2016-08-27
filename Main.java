@@ -17,6 +17,7 @@ public class Main
 	JButton reset;
 	JButton randomize;
 	JLabel note;
+	JLabel score;
 	
 	public Main()
 	{
@@ -28,7 +29,8 @@ public class Main
 		reset = new JButton("Reset");
 		randomize = new JButton("Randomize");
 		reset.setOpaque(true);
-		randomize.setOpaque(true); 
+		randomize.setOpaque(true);
+		score = board.getScore();
 		// note won't appear on FlowLayout for some reason
 		note = new JLabel("* note that not all puzzle positions are solvable");
 	}
@@ -45,14 +47,13 @@ public class Main
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
 		optionPanel.add(reset);
 		optionPanel.add(randomize);
-		optionPanel.add(board.getScore());
+		optionPanel.add(score);
 		optionPanel.add(note);
 		housingPanel.add(optionPanel, BorderLayout.SOUTH);
 		
 		frame.add(housingPanel);
 		frame.setVisible(true);
-		frame.setResizable(false); 
-		
+		frame.setResizable(false); 		
 		
 		
 		/* 

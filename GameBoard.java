@@ -9,6 +9,7 @@ public class GameBoard extends JComponent
 	private Square[][] grid;
 	private ActionListener boardListener;
 	private int score;
+	private JLabel scoreLabel;
 	
 	public GameBoard()
 	{
@@ -115,6 +116,7 @@ public class GameBoard extends JComponent
 				}
 			}
 			score = score + 1;
+			scoreLabel.setText("   moves: "+score);
 		}
 	}
 	
@@ -162,7 +164,7 @@ public class GameBoard extends JComponent
 	
 	public JLabel getScore()
 	{
-		return new JLabel("   moves:  "+score);
+		return scoreLabel;
 	}
 	
 	class SquareListener implements ActionListener 
@@ -173,12 +175,11 @@ public class GameBoard extends JComponent
 			Square pressed = (Square)event.getSource();
 			flipNeighbors(pressed.getXCoord(dimension), pressed.getYCoord(dimension));
 			
-			// score should display update in Main (right now it doesn't)			
 			if(checkWin() == true)
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
-				this.GameBoard(dimension+2); 
+				new GameBoard(dimension+2); 
 			}  
 		}
 	}

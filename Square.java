@@ -29,8 +29,8 @@ public class Square extends JButton
 	public Square()
 	{
 		this.setPreferredSize(new Dimension(5,5));
+		this.setOpaque(true);
 		setState(false);
-		this.setOpaque(true); 
 		id = lastID + 1;
 		lastID = id;
 	}
