@@ -182,10 +182,11 @@ public class GameBoard extends JComponent
 		if(checkWin() == true)
 		{
 			// PROBLEM: the dialog box should always be on top of the game
-			JOptionPane.showMessageDialog(null, "You win! \nMoving onto next level....");
+			JOptionPane.showMessageDialog(null, "Congratulations! \nYou win!");
 			winningMessage.setVisible(true);
 			updateScore(0);
-			new GameBoard(dimension+2);
+			reset();
+			//new GameBoard(dimension+2);
 		}
 	}
 	
