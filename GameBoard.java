@@ -15,7 +15,7 @@ public class GameBoard extends JComponent
 	public GameBoard()
 	{
 		// constructor
-		dimension = 3;
+		dimension = 5;
 		updateScore(0);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
@@ -178,6 +178,7 @@ public class GameBoard extends JComponent
 	{
 		if(checkWin() == true)
 		{
+			// PROBLEM: the dialog box should always be on top of the game
 			JOptionPane.showMessageDialog(null, "You win! \nMoving onto next level....");
 			winningMessage.setVisible(true);
 			updateScore(0);
