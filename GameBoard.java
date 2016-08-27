@@ -115,8 +115,7 @@ public class GameBoard extends JComponent
 					grid[x][y+j].flip();
 				}
 			}
-			score = score + 1;
-			scoreLabel.setText("moves: "+score);
+			updateScore(score+1);
 		}
 	}
 	
@@ -162,14 +161,15 @@ public class GameBoard extends JComponent
 		}
 	}
 	
-	public void updateScore(int score)
+	public void updateScore(int moves)
 	{
-		this.score = score;
-		scoreLabel.setText("moves: "+score);
+		this.score = moves;
+		scoreLabel.setText("moves: "+moves);
 	}
 	
 	public JLabel getScore()
 	{
+		// used for Main class
 		return scoreLabel;
 	}
 	
