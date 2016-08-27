@@ -23,6 +23,9 @@ public class Square extends JButton
 	//id is used to find coordinates within the board and for debug
 	private int id;
 	// lastID allows the id to increase; 
+	// lastID starts at -1 because the id will always be lastID+1
+	// thus making the id #0 the first id (-1+1 = 0)
+	// thus in the GameBoard, the id goes from 0 to (n^2)-1 
 	private static int lastID = -1;
 	
 	
@@ -67,6 +70,11 @@ public class Square extends JButton
 		setState(random.nextBoolean());
 	}
 	
+	public int getID()
+	{
+		return id;
+	}
+	
 	public int getXCoord(int lim)
 	{
 		// used for GameBoard
@@ -83,7 +91,7 @@ public class Square extends JButton
 	
 	public String toString(int limit)
 	{
-		String debug = "id: "+id+"\nxTile: "+getXCoord(limit)+"\tyTile: "+getYCoord(limit)+"\nState: "+getState()+"";
+		String debug = "id: "+getID()+"\nxTile: "+getXCoord(limit)+"\tyTile: "+getYCoord(limit)+"\nState: "+getState()+"";
 		return debug;
 	}
 }

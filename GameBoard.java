@@ -1,6 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.math.*;
 
 @SuppressWarnings({ "serial", "unused" })
 public class GameBoard extends JComponent
@@ -134,6 +135,7 @@ public class GameBoard extends JComponent
 	
 	public int getDimension()
 	{
+		// used for configuring grid in top class top-class Main
 		return dimension;
 	}
 	
@@ -141,6 +143,7 @@ public class GameBoard extends JComponent
 	{
 		updateScore(0);
 		// note that not all permutations are solvable
+		// should add a second layer of randomization for amount of squares randomized 
 		for(int x = 0; x < grid.length; x++)
 		{
 			for(int y = 0; y < grid[x].length; y++)
@@ -152,7 +155,7 @@ public class GameBoard extends JComponent
 
 	public void addBoard(JPanel con)
 	{
-		// will be used to add the board to Main
+		// will be used to add the board to top-class Main
 		for(int x = 0; x < grid.length; x++)
 		{
 			for(int y = 0; y < grid[x].length; y++)
@@ -170,7 +173,7 @@ public class GameBoard extends JComponent
 	
 	public JLabel getScore()
 	{
-		// used for Main class
+		// used for top-class Main
 		return scoreLabel;
 	}
 	

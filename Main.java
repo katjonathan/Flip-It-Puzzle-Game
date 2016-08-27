@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 public class Main
 {
-	// Java won't allow Main to have class variable
+	// Java won't allow Main to have class variables
 	
 	public static void main(String[] args)
 	{
@@ -27,6 +27,8 @@ public class Main
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		// places the frame to the center of the screen 
+		frame.setLocationRelativeTo(null);
 		
 		gamePanel.setLayout(new GridLayout(board.getDimension(),board.getDimension()));
 		optionPanel.setLayout(new FlowLayout());
@@ -42,14 +44,6 @@ public class Main
 		frame.add(housingPanel);
 		frame.setVisible(true);
 		frame.setResizable(false); 		
-		
-		
-		/* 
-		 * THINGS TO DO:
-		 * Need a way for Main to listen to the updates GameBoard is making 
-		 * and change various things about Main (like score or dimension) 
-		 * according to what is done in GameBoard
-		 */
 		
 		// OptionListener used for 'reset' and 'randomize' buttons
 		class OptionListener implements ActionListener
@@ -74,3 +68,16 @@ public class Main
 	}
 	
 }
+
+
+/* 
+ * THINGS TO DO:
+ * 
+ * +->  Need a way for Main to listen to the updates GameBoard is making 
+ * and change various things about Main (like score or dimension) 
+ * according to what is done in GameBoard
+ * +->  the winning dialog box should always be on top of the game
+ * +->  note about randomize being not always solvable does not display
+ * +->  need to fix randomize algorithm: add a second layer for the amount of squares to be randomized
+ */
+
