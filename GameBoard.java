@@ -181,7 +181,7 @@ public class GameBoard extends JComponent
 			JOptionPane.showMessageDialog(null, "You win! \nMoving onto next level....");
 			winningMessage.setVisible(true);
 			updateScore(0);
-			this.GameBoard(dimension+2);
+			new GameBoard(dimension+2);
 		}
 	}
 	
