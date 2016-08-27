@@ -8,15 +8,14 @@ public class GameBoard extends JComponent
 	private int dimension;
 	private Square[][] grid;
 	private ActionListener boardListener;
-	private int score;
-	private JLabel scoreLabel;
+	private int score = 0;
+	private JLabel scoreLabel = new JLabel();
 	
 	public GameBoard()
 	{
 		// constructor
 		dimension = 5;
-		score = 0;
-		scoreLabel = new JLabel("moves: "+score);
+		updateScore(0);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
@@ -42,8 +41,7 @@ public class GameBoard extends JComponent
 	{
 		// constructor
 		dimension = input;
-		score = 0;
-		scoreLabel = new JLabel("moves: "+score);
+		updateScore(0);
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
@@ -131,8 +129,7 @@ public class GameBoard extends JComponent
 				grid[x][y].setState(false);
 			}
 		}
-		score = 0;
-		scoreLabel.setText("moves: "+score);
+		updateScore(0);
 	}
 	
 	public int getDimension()
@@ -142,7 +139,7 @@ public class GameBoard extends JComponent
 	
 	public void randomizeBoard()
 	{
-		score = 0;
+		updateScore(0);
 		// note that not all permutations are solvable
 		for(int x = 0; x < grid.length; x++)
 		{
@@ -165,6 +162,12 @@ public class GameBoard extends JComponent
 		}
 	}
 	
+	public void updateScore(int score)
+	{
+		this.score = score;
+		scoreLabel.setText("moves: "+score);
+	}
+	
 	public JLabel getScore()
 	{
 		return scoreLabel;
@@ -182,7 +185,7 @@ public class GameBoard extends JComponent
 			{
 				// want to increase the dimensions of the board 
 				// want to send message to Main class to create a new GameBoard
-				new GameBoard(dimension+2); 
+				this.GameBoard(dimension+2); 
 			}  
 		}
 	}
