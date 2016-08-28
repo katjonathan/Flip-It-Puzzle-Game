@@ -31,8 +31,9 @@ public class Square extends JButton
 	
 	public Square()
 	{
-		this.setPreferredSize(new Dimension(5,5));
 		this.setOpaque(true);
+		this.setBorder(new LineBorder(Color.BLACK)) ;
+		this.setBorderPainted(true);
 		setState(false);
 		id = lastID + 1;
 		lastID = id;
