@@ -14,5 +14,5 @@ Errors and Things to Work on:
 *  The JLabel in Main class with the note reading 'note that not all puzzle positions are solvable' is not appearing below the 'reset' and 'randomize' buttons
 *  There is no logic implementing the increase of dimensions by adding 2 new rows and columns to the gameboard
 *  The size of the Squares are not fixed
-
+*  The dialog box is not always above the main frame
  
