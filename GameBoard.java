@@ -12,33 +12,7 @@ public class GameBoard extends JComponent
 	private int score = 0;
 	private JLabel scoreLabel = new JLabel();
 	private JOptionPane winningMessage = new JOptionPane();
-	
-	public GameBoard()
-	{
-		// constructor
-		dimension = 5;
-		updateScore(0);
-		grid = new Square[dimension][dimension];
-		boardListener = new SquareListener();
-		
-		//instantiate each Square
-		for(int x = 0; x < grid.length; x++)
-		{
-			for(int y = 0; y < grid[x].length; y++)
-			{
-				grid[x][y] = new Square();
-			}
-		}
 
-		for(int x = 0; x < grid.length; x++)
-		{
-			for(int y = 0; y < grid[x].length; y++)
-			{
-				grid[x][y].addActionListener(boardListener);
-			}
-		}
-	}
-	
 	public GameBoard(int input)
 	{
 		// constructor
