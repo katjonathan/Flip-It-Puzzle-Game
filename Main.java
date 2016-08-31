@@ -14,12 +14,13 @@ public class Main
 		final int FRAME_WIDTH = 400;
 		final int FRAME_HEIGHT = 450;
 		JFrame frame = new JFrame("Flip It! -- A Puzzle Game");
-		GameBoard board = new GameBoard(5);
+		// for newbies: to change the board size, change the "5" to any integer between 3 and 10
+		final GameBoard board = new GameBoard(5);
 		JPanel gamePanel = new JPanel();
 		JPanel optionPanel = new JPanel();
 		JPanel housingPanel = new JPanel();
-		JButton reset = new JButton("Reset");
-		JButton randomize = new JButton("Randomize");
+		final JButton reset = new JButton("Reset");
+		final JButton randomize = new JButton("Randomize");
 		reset.setOpaque(true);
 		randomize.setOpaque(true);
 		JLabel score = board.getScore();

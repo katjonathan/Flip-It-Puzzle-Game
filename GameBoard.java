@@ -12,7 +12,7 @@ public class GameBoard extends JComponent
 	private int score = 0;
 	private JLabel scoreLabel = new JLabel();
 	private JOptionPane winningMessage = new JOptionPane();
-
+	
 	public GameBoard(int input)
 	{
 		// constructor
@@ -21,7 +21,7 @@ public class GameBoard extends JComponent
 		grid = new Square[dimension][dimension];
 		boardListener = new SquareListener();
 		
-		//instantiate each Square
+		// instantiate each Square
 		for(int x = 0; x < grid.length; x++)
 		{
 			for(int y = 0; y < grid[x].length; y++)
@@ -97,6 +97,7 @@ public class GameBoard extends JComponent
 	
 	public void reset()
 	{
+		updateScore(0);
 		for(int x = 0; x < grid.length; x++)
 		{
 			for(int y = 0; y < grid[x].length; y++)
@@ -104,7 +105,6 @@ public class GameBoard extends JComponent
 				grid[x][y].setState(false);
 			}
 		}
-		updateScore(0);
 	}
 	
 	public int getDimension()
@@ -156,6 +156,11 @@ public class GameBoard extends JComponent
 		if(checkWin() == true)
 		{
 			// PROBLEM: the dialog box should always be on top of the game
+			// PROBLEM: cannot increase GameBoard size
+			/*
+			 * PROBLEM: if size were to somehow increase, then cannot increase the frame size 
+			 * so the size of each square will remain the same
+			 */
 			JOptionPane.showMessageDialog(null, "Congratulations! \nYou win!");
 			winningMessage.setVisible(true);
 			updateScore(0);

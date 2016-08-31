@@ -1,4 +1,5 @@
-import javax.swing.JButton;
+import javax.swing.*;
+import javax.swing.border.*;
 import java.util.Random;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,7 +8,6 @@ import java.awt.event.*;
 @SuppressWarnings({ "serial", "unused" })
 public class Square extends JButton
 {
-	
 	// each Square has a state that turns 'on' or 'off', similar to a light
 	private boolean state;
 	
@@ -17,11 +17,12 @@ public class Square extends JButton
 	// these two are labels that display whether the Square is 'on' or 'off'
 	private static final String STATE_TEXT_ON = "ON";
 	private static final String STATE_TEXT_OFF = "OFF";
-	private static final Color OFF_COLOR = new Color(0, 0, 255);
 	private static final Color ON_COLOR = new Color(255, 255, 0);
+	private static final Color OFF_COLOR = new Color(0, 0, 255);
 	
 	//id is used to find coordinates within the board and for debug
 	private int id;
+	
 	// lastID allows the id to increase; 
 	// lastID starts at -1 because the id will always be lastID+1
 	// thus making the id #0 the first id (-1+1 = 0)
