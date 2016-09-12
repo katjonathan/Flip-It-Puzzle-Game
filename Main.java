@@ -13,7 +13,7 @@ public class Main
 	{
 		final int FRAME_WIDTH = 400;
 		final int FRAME_HEIGHT = 450;
-		JFrame frame = new JFrame("Flip It! -- A Puzzle Game");
+		final JFrame frame = new JFrame("Flip It! -- A Puzzle Game");
 		// for newbies: to change the board size, change the "5" to any integer between 3 and 10
 		final GameBoard board = new GameBoard(5);
 		JPanel gamePanel = new JPanel();
@@ -21,10 +21,12 @@ public class Main
 		JPanel housingPanel = new JPanel();
 		final JButton reset = new JButton("Reset");
 		final JButton randomize = new JButton("Randomize");
+		final JButton center = new JButton("Center"); 
 		reset.setOpaque(true);
 		randomize.setOpaque(true);
+		center.setOpaque(true);
 		JLabel score = board.getScore();
-		JLabel note = new JLabel("* note that not all puzzle positions are solvable");
+		JLabel note = new JLabel("*  note that not all puzzle positions are solvable");
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -37,14 +39,13 @@ public class Main
 		board.addBoard(gamePanel);
 		housingPanel.add(gamePanel, BorderLayout.CENTER);
 		optionPanel.add(reset);
+		optionPanel.add(center);
 		optionPanel.add(randomize);
 		optionPanel.add(score);
 		optionPanel.add(note);
 		housingPanel.add(optionPanel, BorderLayout.SOUTH);
-		
 		frame.add(housingPanel);
-		frame.setVisible(true);
-		frame.setResizable(false); 		
+		
 		
 		// OptionListener used for 'reset' and 'randomize' buttons
 		class OptionListener implements ActionListener
@@ -60,12 +61,20 @@ public class Main
 				{
 					board.randomizeBoard();
 				}
+				if(pressed == center)
+				{
+					frame.setLocationRelativeTo(null);
+				}
 			}
 		}
+		
+		frame.setResizable(false); 		
+		frame.setVisible(true);
 		
 		ActionListener buttonListener = new OptionListener();
 		reset.addActionListener(buttonListener);
 		randomize.addActionListener(buttonListener);
+		center.addActionListener(buttonListener);
 	}
 	
 }
