@@ -71,7 +71,7 @@ public class GameBoard extends JComponent
 		 *	cases:
 		 *	----> if at corner = 3 neighbors
 		 *	----> if on side = 4 neighbors
-		 *  ----> if in middle = 5 neighbors
+		 *  	----> if in middle = 5 neighbors
 		*/
 		if((x >= 0 && x < dimension) && (y >= 0 && y < dimension))
 		{
